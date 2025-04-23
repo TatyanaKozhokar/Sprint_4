@@ -70,7 +70,7 @@ public class OrderButtonsTest {
         objectOFP2.inputComment(comment); //Оставляем комментарий для курьера
         objectOFP2.clickOrderButton(); //Нажимаем кнопку Заказать
         objectOFP2.clickYesButton(); //Подтверждаем заказ
-        WebElement finalWindow = driver.findElement(By.xpath("//button[text()='Посмотреть статус']")); //Вноим окно с созданным заказом в переменную
+        WebElement finalWindow = driver.findElement(objectOFP2.getOrderHasBeenPlaced()); //Вносим окно с созданным заказом в переменную
         MatcherAssert.assertThat(finalWindow, notNullValue()); //Сравниваем, что эта переменная не пустая
     }
 
@@ -92,7 +92,7 @@ public class OrderButtonsTest {
         objectOFP2.inputComment(comment);
         objectOFP2.clickOrderButton();
         objectOFP2.clickYesButton();
-        WebElement finalWindow = driver.findElement(By.xpath("//button[text()='Посмотреть статус']"));
+        WebElement finalWindow = driver.findElement(objectOFP2.getOrderHasBeenPlaced()); //Вносим окно с созданным заказом в переменную
         MatcherAssert.assertThat(finalWindow, notNullValue());
     }
 

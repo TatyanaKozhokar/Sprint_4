@@ -16,6 +16,16 @@ public class OrderFormPage_part2 {
     private final By comment = By.xpath("//input[@placeholder='Комментарий для курьера']");
     private final By orderButton = By.xpath("//div[@class='Order_Buttons__1xGrp']/button[text()='Заказать']");
     private final By yesButton = By.xpath("//div[@class='Order_Buttons__1xGrp']/button[text()='Да']");
+    private final By orderHasBeenPlaced = By.xpath("//div[@class = 'Order_ModalHeader__3FDaJ' and text() = 'Заказ оформлен']");
+    private final By header = By.className("Order_Header__BZXOb");
+    private final By dropdownDay = By.xpath("//div[@class='Dropdown-option' and text()='сутки']");
+    private final By dropdownTwoDays = By.xpath("//div[@class='Dropdown-option' and text()='двое суток']");
+    private final By dropdownThreeDays = By.xpath("//div[@class='Dropdown-option' and text()='трое суток']");
+    private final By dropdownFourDays = By.xpath("//div[@class='Dropdown-option' and text()='четверо суток']");
+    private final By dropdownFiveDays = By.xpath("//div[@class='Dropdown-option' and text()='пятеро суток']");
+    private final By dropdownSixDays = By.xpath("//div[@class='Dropdown-option' and text()='шестеро суток']");
+    private final By dropdownSevenDays = By.xpath("//div[@class='Dropdown-option' and text()='семеро суток']");
+
 
 
     public OrderFormPage_part2(WebDriver driver) {
@@ -25,36 +35,35 @@ public class OrderFormPage_part2 {
     public void inputDate(String data) { //Метод для ввода даты
         driver.findElement(date).click();
         driver.findElement(date).sendKeys(data);
-        driver.findElement(By.className("Order_Header__BZXOb")).click();
+        driver.findElement(header).click();
     }
 
     public void inputDuration(String data) { //Метод для выбора длительности аренды
         driver.findElement(duration).click();
         new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.elementToBeClickable(
-                        By.xpath("//div[@class='Dropdown-option' and text()='сутки']")));
+                .until(ExpectedConditions.elementToBeClickable(dropdownDay));
 
         switch (data) {
             case "сутки":
-                driver.findElement(By.xpath("//div[@class='Dropdown-option' and text()='сутки']")).click();
+                driver.findElement(dropdownDay).click();
                 break;
             case "двое суток":
-                driver.findElement(By.xpath("//div[@class='Dropdown-option' and text()='двое суток']")).click();
+                driver.findElement(dropdownTwoDays).click();
                 break;
             case "трое суток":
-                driver.findElement(By.xpath("//div[@class='Dropdown-option' and text()='трое суток']")).click();
+                driver.findElement(dropdownThreeDays).click();
                 break;
             case "четверо суток":
-                driver.findElement(By.xpath("//div[@class='Dropdown-option' and text()='четверо суток']")).click();
+                driver.findElement(dropdownFourDays).click();
                 break;
             case "пятеро суток":
-                driver.findElement(By.xpath("//div[@class='Dropdown-option' and text()='пятеро суток']")).click();
+                driver.findElement(dropdownFiveDays).click();
                 break;
             case "шестеро суток":
-                driver.findElement(By.xpath("//div[@class='Dropdown-option' and text()='шестеро суток']")).click();
+                driver.findElement(dropdownSixDays).click();
                 break;
             case "семеро суток":
-                driver.findElement(By.xpath("//div[@class='Dropdown-option' and text()='семеро суток']")).click();
+                driver.findElement(dropdownSevenDays).click();
                 break;
         }
     }
@@ -77,6 +86,10 @@ public class OrderFormPage_part2 {
 
     public void clickYesButton() { //Метод для подтверждения заказа
         driver.findElement(yesButton).click();
+    }
+
+    public By getOrderHasBeenPlaced(){
+        return orderHasBeenPlaced;
     }
 
 }
