@@ -2,6 +2,7 @@ package tests;
 
 import org.hamcrest.MatcherAssert;
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -50,12 +51,19 @@ public class OrderButtonsTest {
 
     private WebDriver driver;
 
-    @Test
-    public void orderButtonOnTopTest() { //Проверка кнопки вверху страницы
+    @Before
+    public void openBrowserAndAcceptCookies(){
         driver = new ChromeDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
         HomePage objectHP = new HomePage(driver); //Создаем объект класса HomePage
-        objectHP.waitForCookie(); //Вызываем метод принятия куки
+        objectHP.waitForCookie();
+    }
+
+
+
+    @Test
+    public void orderButtonOnTopTest() { //Проверка кнопки вверху страницы
+        HomePage objectHP = new HomePage(driver); //Создаем объект класса HomePage
         objectHP.clickOrderButtonOnTop(); //Вызываем метод нажатия на кнопку
         objectHP.waitingForNextPage(); //Вызываем метод ожидания прогрузки следующей страницы
         OrderFormPage_UserInformation objectOFP1 = new OrderFormPage_UserInformation(driver); //Создаем объект OrderFormPage_part1
@@ -71,10 +79,7 @@ public class OrderButtonsTest {
 
     @Test
     public void orderButtonMiddleTest() { //Проверка кнопки в середине страницы
-        driver = new ChromeDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
         HomePage objectHP = new HomePage(driver);
-        objectHP.waitForCookie();
         objectHP.clickOrderButtonMiddle();
         objectHP.waitingForNextPage();
         OrderFormPage_UserInformation objectOFP1 = new OrderFormPage_UserInformation(driver);
