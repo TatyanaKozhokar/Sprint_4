@@ -13,6 +13,7 @@ import pages.HomePage;
 import pages.OrderFormPage_UserInformation;
 import pages.Scooter_and_OrderInformationPage;
 import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.junit.Assert.assertEquals;
 
 
 @RunWith(Parameterized.class)
@@ -73,8 +74,8 @@ public class OrderButtonsTest {
         objectOFP2.filTheScooterForm(date,duration, colour, comment);
         objectOFP2.clickOrderButton(); //Нажимаем кнопку Заказать
         objectOFP2.clickYesButton(); //Подтверждаем заказ
-        WebElement finalWindow = driver.findElement(objectOFP2.getOrderHasBeenPlaced()); //Вносим окно с созданным заказом в переменную
-        MatcherAssert.assertThat(finalWindow, notNullValue()); //Сравниваем, что эта переменная не пустая
+        String finalWindow = driver.findElement(objectOFP2.getOrderHasBeenPlaced()).getText(); //Вносим окно с созданным заказом в переменную
+        assertEquals("Заказ оформлен", finalWindow);
     }
 
     @Test
@@ -89,8 +90,8 @@ public class OrderButtonsTest {
         objectOFP2.filTheScooterForm(date,duration, colour, comment);
         objectOFP2.clickOrderButton();
         objectOFP2.clickYesButton();
-        WebElement finalWindow = driver.findElement(objectOFP2.getOrderHasBeenPlaced()); //Вносим окно с созданным заказом в переменную
-        MatcherAssert.assertThat(finalWindow, notNullValue());
+        String finalWindow = driver.findElement(objectOFP2.getOrderHasBeenPlaced()).getText(); //Вносим окно с созданным заказом в переменную
+        assertEquals("Заказ оформлен", finalWindow);
     }
 
     @After
