@@ -62,10 +62,7 @@ public class OrderButtonsTest {
         objectOFP1.filInTheForm(firstName, lastName, address, metroStation, phoneNumber); //Вносим в поля параметрические данные
         objectOFP1.clickNextButton(); //Нажимаем кнопку Далее
         Scooter_and_OrderInformationPage objectOFP2 = new Scooter_and_OrderInformationPage(driver); //Создаем объект OrderFormPage_part2
-        objectOFP2.inputDate(date); //Вносим дату
-        objectOFP2.inputDuration(duration); //Вносим длительность аренды
-        objectOFP2.inputColour(colour); //Выбираем цвет
-        objectOFP2.inputComment(comment); //Оставляем комментарий для курьера
+        objectOFP2.filTheScooterForm(date,duration, colour, comment);
         objectOFP2.clickOrderButton(); //Нажимаем кнопку Заказать
         objectOFP2.clickYesButton(); //Подтверждаем заказ
         WebElement finalWindow = driver.findElement(objectOFP2.getOrderHasBeenPlaced()); //Вносим окно с созданным заказом в переменную
@@ -84,10 +81,7 @@ public class OrderButtonsTest {
         objectOFP1.filInTheForm(firstName, lastName, address, metroStation, phoneNumber);
         objectOFP1.clickNextButton();
         Scooter_and_OrderInformationPage objectOFP2 = new Scooter_and_OrderInformationPage(driver);
-        objectOFP2.inputDate(date);
-        objectOFP2.inputDuration(duration);
-        objectOFP2.inputColour(colour);
-        objectOFP2.inputComment(comment);
+        objectOFP2.filTheScooterForm(date,duration, colour, comment);
         objectOFP2.clickOrderButton();
         objectOFP2.clickYesButton();
         WebElement finalWindow = driver.findElement(objectOFP2.getOrderHasBeenPlaced()); //Вносим окно с созданным заказом в переменную

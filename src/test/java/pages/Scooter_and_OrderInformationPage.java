@@ -91,6 +91,12 @@ public class Scooter_and_OrderInformationPage {
     public By getOrderHasBeenPlaced(){
         return orderHasBeenPlaced;
     }
+    public void filTheScooterForm(String date, String durance, String colour, String comment){
+        inputDate(date);
+        inputDuration(durance);
+        inputColour(colour);
+        inputComment(comment);
+    }
 
 }
 
