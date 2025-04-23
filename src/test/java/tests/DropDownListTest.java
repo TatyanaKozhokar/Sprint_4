@@ -53,8 +53,6 @@ public class DropDownListTest {
         objectHM.clickOnQuestion(question);
 
         assertEquals(expectedAnswer, objectHM.getAnswer(question));
-
-
     }
 
     @After

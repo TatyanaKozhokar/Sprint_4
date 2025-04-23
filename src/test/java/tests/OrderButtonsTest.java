@@ -65,14 +65,14 @@ public class OrderButtonsTest {
         HomePage objectHP = new HomePage(driver); //Создаем объект класса HomePage
         objectHP.clickOrderButtonOnTop(); //Вызываем метод нажатия на кнопку
         objectHP.waitingForNextPage(); //Вызываем метод ожидания прогрузки следующей страницы
-        OrderFormPage_UserInformation objectOFP1 = new OrderFormPage_UserInformation(driver); //Создаем объект OrderFormPage_part1
-        objectOFP1.filInTheForm(firstName, lastName, address, metroStation, phoneNumber); //Вносим в поля параметрические данные
-        objectOFP1.clickNextButton(); //Нажимаем кнопку Далее
-        Scooter_and_OrderInformationPage objectOFP2 = new Scooter_and_OrderInformationPage(driver); //Создаем объект OrderFormPage_part2
-        objectOFP2.filTheScooterForm(date,duration, colour, comment);
-        objectOFP2.clickOrderButton(); //Нажимаем кнопку Заказать
-        objectOFP2.clickYesButton(); //Подтверждаем заказ
-        String finalWindow = driver.findElement(objectOFP2.getOrderHasBeenPlaced()).getText(); //Вносим окно с созданным заказом в переменную
+        OrderFormPage_UserInformation objectOFP_UI = new OrderFormPage_UserInformation(driver); //Создаем объект OrderFormPage_part1
+        objectOFP_UI.filInTheForm(firstName, lastName, address, metroStation, phoneNumber); //Вносим в поля параметрические данные
+        objectOFP_UI.clickNextButton(); //Нажимаем кнопку Далее
+        Scooter_and_OrderInformationPage objectSOIP = new Scooter_and_OrderInformationPage(driver); //Создаем объект OrderFormPage_part2
+        objectSOIP.filTheScooterForm(date,duration, colour, comment);
+        objectSOIP.clickOrderButton(); //Нажимаем кнопку Заказать
+        objectSOIP.clickYesButton(); //Подтверждаем заказ
+        String finalWindow = driver.findElement(objectSOIP.getOrderHasBeenPlaced()).getText(); //Вносим окно с созданным заказом в переменную
         assertEquals("Заказ оформлен", finalWindow);
     }
 
@@ -81,14 +81,14 @@ public class OrderButtonsTest {
         HomePage objectHP = new HomePage(driver);
         objectHP.clickOrderButtonMiddle();
         objectHP.waitingForNextPage();
-        OrderFormPage_UserInformation objectOFP1 = new OrderFormPage_UserInformation(driver);
-        objectOFP1.filInTheForm(firstName, lastName, address, metroStation, phoneNumber);
-        objectOFP1.clickNextButton();
-        Scooter_and_OrderInformationPage objectOFP2 = new Scooter_and_OrderInformationPage(driver);
-        objectOFP2.filTheScooterForm(date,duration, colour, comment);
-        objectOFP2.clickOrderButton();
-        objectOFP2.clickYesButton();
-        String finalWindow = driver.findElement(objectOFP2.getOrderHasBeenPlaced()).getText(); //Вносим окно с созданным заказом в переменную
+        OrderFormPage_UserInformation objectOFP_UI = new OrderFormPage_UserInformation(driver);
+        objectOFP_UI.filInTheForm(firstName, lastName, address, metroStation, phoneNumber);
+        objectOFP_UI.clickNextButton();
+        Scooter_and_OrderInformationPage objectSOIP = new Scooter_and_OrderInformationPage(driver);
+        objectSOIP.filTheScooterForm(date,duration, colour, comment);
+        objectSOIP.clickOrderButton();
+        objectSOIP.clickYesButton();
+        String finalWindow = driver.findElement(objectSOIP.getOrderHasBeenPlaced()).getText(); //Вносим окно с созданным заказом в переменную
         assertEquals("Заказ оформлен", finalWindow);
     }
 
