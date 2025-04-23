@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class OrderFormPage_part1 {
+public class OrderFormPage_UserInformation {
     private final WebDriver driver;
     private final By firstName = By.xpath("//input[@placeholder='* Имя']");
     private final By lastName = By.xpath("//input[@placeholder='* Фамилия']");
@@ -24,7 +24,7 @@ public class OrderFormPage_part1 {
         inputPhoneNumber(phoneN);
     }
 
-    public OrderFormPage_part1(WebDriver driver) {
+    public OrderFormPage_UserInformation(WebDriver driver) {
         this.driver = driver;
     }
 

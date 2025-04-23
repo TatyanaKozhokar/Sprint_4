@@ -9,9 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.HomePage;
-import pages.OrderFormPage_part1;
-import pages.OrderFormPage_part2;
-
+import pages.OrderFormPage_UserInformation;
+import pages.Scooter_and_OrderInformationPage;
 import static org.hamcrest.CoreMatchers.notNullValue;
 
 
@@ -59,10 +58,10 @@ public class OrderButtonsTest {
         objectHP.waitForCookie(); //Вызываем метод принятия куки
         objectHP.clickOrderButtonOnTop(); //Вызываем метод нажатия на кнопку
         objectHP.waitingForNextPage(); //Вызываем метод ожидания прогрузки следующей страницы
-        OrderFormPage_part1 objectOFP1 = new OrderFormPage_part1(driver); //Создаем объект OrderFormPage_part1
+        OrderFormPage_UserInformation objectOFP1 = new OrderFormPage_UserInformation(driver); //Создаем объект OrderFormPage_part1
         objectOFP1.filInTheForm(firstName, lastName, address, metroStation, phoneNumber); //Вносим в поля параметрические данные
         objectOFP1.clickNextButton(); //Нажимаем кнопку Далее
-        OrderFormPage_part2 objectOFP2 = new OrderFormPage_part2(driver); //Создаем объект OrderFormPage_part2
+        Scooter_and_OrderInformationPage objectOFP2 = new Scooter_and_OrderInformationPage(driver); //Создаем объект OrderFormPage_part2
         objectOFP2.inputDate(date); //Вносим дату
         objectOFP2.inputDuration(duration); //Вносим длительность аренды
         objectOFP2.inputColour(colour); //Выбираем цвет
@@ -81,10 +80,10 @@ public class OrderButtonsTest {
         objectHP.waitForCookie();
         objectHP.clickOrderButtonMiddle();
         objectHP.waitingForNextPage();
-        OrderFormPage_part1 objectOFP1 = new OrderFormPage_part1(driver);
+        OrderFormPage_UserInformation objectOFP1 = new OrderFormPage_UserInformation(driver);
         objectOFP1.filInTheForm(firstName, lastName, address, metroStation, phoneNumber);
         objectOFP1.clickNextButton();
-        OrderFormPage_part2 objectOFP2 = new OrderFormPage_part2(driver);
+        Scooter_and_OrderInformationPage objectOFP2 = new Scooter_and_OrderInformationPage(driver);
         objectOFP2.inputDate(date);
         objectOFP2.inputDuration(duration);
         objectOFP2.inputColour(colour);

@@ -14,7 +14,7 @@ public class HomePage {
     private final By orderButtonOnTop = By.className("Button_Button__ra12g"); //Кнопка Заказать вверху страницы
     private final By orderButtonMiddle = By.cssSelector(".Button_Button__ra12g.Button_Middle__1CSJM"); //Кнопка Заказать в середине страницы
     private final By faqSection = By.className("Home_FAQ__3uVm4");
-    private final By answer = By.xpath(".//following-sibling::div[@class='accordion__panel']/p");
+    //private final By answer = By.xpath(".//following-sibling::div[@class='accordion__panel']/p");
     private final By app_cookie = By.className("App_CookieConsent__1yUIN");
     private final By cookieButton = By.xpath("//button[text()='да все привыкли']");
     private final By orderForm = By.className("Order_Form__17u6u");
@@ -56,9 +56,12 @@ public class HomePage {
         driver.findElement(By.xpath("//div[text()='"+ textOfTheQuestion +"']")).click();
     }
 
-    //геттер локатора ответа
-    public By getAnswer(){
-        return answer;
+    //Получаем ответ
+    public String getAnswer(String textOfTheQuestion){
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()='"+ textOfTheQuestion +"']/parent::div/following-sibling::div/p")));
+        WebElement element = driver.findElement(By.xpath("//div[text()='"+ textOfTheQuestion +"']/parent::div/following-sibling::div/p"));
+        return element.getText();
     }
 
 }

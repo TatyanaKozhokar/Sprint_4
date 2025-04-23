@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class OrderFormPage_part2 {
+public class Scooter_and_OrderInformationPage {
     private final WebDriver driver;
     private final By date = By.xpath("//input[@placeholder='* Когда привезти самокат']");
     private final By duration = By.className("Dropdown-root");
@@ -28,7 +28,7 @@ public class OrderFormPage_part2 {
 
 
 
-    public OrderFormPage_part2(WebDriver driver) {
+    public Scooter_and_OrderInformationPage(WebDriver driver) {
         this.driver = driver;
     }
 
