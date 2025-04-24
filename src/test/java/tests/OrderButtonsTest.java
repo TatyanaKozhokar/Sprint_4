@@ -72,7 +72,7 @@ public class OrderButtonsTest {
         objectSOIP.filTheScooterForm(date,duration, colour, comment);
         objectSOIP.clickOrderButton(); //Нажимаем кнопку Заказать
         objectSOIP.clickYesButton(); //Подтверждаем заказ
-        String finalWindow = driver.findElement(objectSOIP.getOrderHasBeenPlaced()).getText(); //Вносим окно с созданным заказом в переменную
+        String finalWindow = objectSOIP.getTheTextOfTheAnswer(); //Вносим окно с созданным заказом в переменную
         assertEquals("Заказ оформлен", finalWindow);
     }
 
@@ -88,7 +88,7 @@ public class OrderButtonsTest {
         objectSOIP.filTheScooterForm(date,duration, colour, comment);
         objectSOIP.clickOrderButton();
         objectSOIP.clickYesButton();
-        String finalWindow = driver.findElement(objectSOIP.getOrderHasBeenPlaced()).getText(); //Вносим окно с созданным заказом в переменную
+        String finalWindow = objectSOIP.getTheTextOfTheAnswer();  //Вносим окно с созданным заказом в переменную
         assertEquals("Заказ оформлен", finalWindow);
     }
 

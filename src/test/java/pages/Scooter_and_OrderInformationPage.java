@@ -98,6 +98,10 @@ public class Scooter_and_OrderInformationPage {
         inputComment(comment);
     }
 
+    public String getTheTextOfTheAnswer(){
+        return driver.findElement(getOrderHasBeenPlaced()).getText();
+    }
+
 }
 
 
